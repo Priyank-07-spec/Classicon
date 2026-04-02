@@ -1031,7 +1031,7 @@ class _GeminiSuggestionsWidgetState extends State<_GeminiSuggestionsWidget> {
   static const kBlue       = Color(0xFF29B6F6);
   static const kWarning    = Color(0xFFFFB300);
   static const kDanger     = Color(0xFFFF5252);
-  static const String _mistralApiKey = 'Owd7H8WSF2nApRBGy4ZiDUDqESI3NrWz'; // Replace with your key
+  static const String _mistralApiKey = 'YOUR_API_KEY'; // My suggestion use mistral ai its free and more give token than gemini 
 
   String _response = '';
   bool _loading = false;
