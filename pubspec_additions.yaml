@@ -1,0 +1,117 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# ADD THESE LINES TO YOUR pubspec.yaml
+# ══════════════════════════════════════════════════════════════════════════════
+
+# 1. Under  dependencies:  (add video_player)
+dependencies:
+  flutter:
+    sdk: flutter
+  video_player: ^2.8.3       # ← ADD THIS
+  dio: ...                   # your existing packages stay
+  cookie_jar: ...
+  # ... rest of your dependencies
+
+
+# 2. Under  flutter:  >  assets:  (add the 7 video paths)
+flutter:
+  assets:
+    - assets/Login.jpg          # your existing assets
+    - assets/register.jpg
+    - assets/videos/clear.mp4       # ← ADD FROM HERE
+    - assets/videos/clouds.mp4
+    - assets/videos/rain.mp4
+    - assets/videos/drizzle.mp4
+    - assets/videos/snow.mp4
+    - assets/videos/fog.mp4
+    - assets/videos/night.mp4       # ← TO HERE
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# YOUR VIDEO FILES → WHERE TO PUT THEM
+# ══════════════════════════════════════════════════════════════════════════════
+#
+#  Your file                   →  Rename & place here
+#  ─────────────────────────────────────────────────────────────────────────
+#  Clean_Sky_video.mp4         →  assets/videos/clear.mp4
+#  Clean_Sky_video.mp4 (copy)  →  assets/videos/clouds.mp4   (same video)
+#  Rainy_Day_video.mp4         →  assets/videos/rain.mp4
+#  Rainy_Day_video.mp4 (copy)  →  assets/videos/drizzle.mp4  (same video)
+#  Rainy_Day_video.mp4 (copy)  →  assets/videos/fog.mp4      (same video)
+#  winter_mobile_video.mp4     →  assets/videos/snow.mp4
+#  Night_Mobile_Video.mp4      →  assets/videos/night.mp4
+#
+#  Folder structure in your project:
+#
+#  classico/                       ← your Flutter project root
+#  ├── lib/
+#  │   ├── weather_video_background.dart   ← new file
+#  │   ├── Home_Screen.dart                ← update this
+#  │   └── ...
+#  ├── assets/
+#  │   ├── Login.jpg
+#  │   ├── register.jpg
+#  │   └── videos/                 ← CREATE this folder
+#  │       ├── clear.mp4
+#  │       ├── clouds.mp4
+#  │       ├── rain.mp4
+#  │       ├── drizzle.mp4
+#  │       ├── snow.mp4
+#  │       ├── fog.mp4
+#  │       └── night.mp4
+#  └── pubspec.yaml
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHANGES TO Home_Screen.dart  (2 lines only)
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# 1. Add import at top of Home_Screen.dart:
+#
+#      import 'package:classico/weather_video_background.dart';
+#
+#
+# 2. In _buildWeatherTab(), find this existing line:
+#
+#      Expanded(
+#        flex: 10,
+#        child: Stack(children: [
+#          Container(
+#            decoration: BoxDecoration(color: bg),
+#          ),
+#          SafeArea(
+#
+#    Replace it with:
+#
+#      Expanded(
+#        flex: 10,
+#        child: WeatherVideoBackground(
+#          weatherMain: _weatherMain,
+#          child: SafeArea(
+#
+#    And find the closing of that Stack (it ends with two `]),`):
+#    Remove the Stack's `]),` and replace with just `),` to close WeatherVideoBackground.
+#
+#    Also update the temperature Text style to add shadows for readability:
+#
+#      Text(_appSettings.convertTemp(_temp),
+#          style: TextStyle(
+#              color: getWeatherTextColor(_weatherMain),   // ← change this
+#              fontSize: 72,
+#              fontWeight: FontWeight.w200,
+#              letterSpacing: -3,
+#              shadows: const [                            // ← add this
+#                Shadow(color: Colors.black38,
+#                    blurRadius: 10, offset: Offset(0, 2)),
+#              ])),
+#
+#    And the city name Text:
+#
+#      Text('$_city, $_country',
+#          style: TextStyle(
+#              color: getWeatherTextColor(_weatherMain),   // ← change this
+#              fontSize: 18,
+#              fontWeight: FontWeight.bold,
+#              shadows: const [                            // ← add this
+#                Shadow(color: Colors.black26,
+#                    blurRadius: 6, offset: Offset(0, 1)),
+#              ])),

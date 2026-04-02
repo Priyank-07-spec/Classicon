@@ -1,0 +1,36 @@
+name: classico
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  cupertino_icons: ^1.0.8
+  icons_plus: ^4.0.0
+  dio: ^5.4.0
+  cookie_jar: ^4.0.9
+  dio_cookie_manager: ^3.4.0
+  http: ^1.2.0
+  video_player: ^2.8.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/videos/Clean_Sky_video.mp4
+    - assets/videos/Rainy_Day_video.mp4
+    - assets/videos/winter_mobile_video.mp4
+    - assets/videos/Night_Mobile_Video.mp4
