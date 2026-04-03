@@ -10,7 +10,7 @@ import 'package:classico/Alerts_Screen.dart';
 import 'package:classico/weather_alert_service.dart';
 import 'package:classico/weather_animation.dart';
 
-const String _apiKey = 'a022fdde8cc3c7e052cd556019e290cc';
+const String _apiKey = 'Your_Weather_APIKEY';// suggest for weather api key from open weather 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
